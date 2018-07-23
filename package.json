@@ -1,0 +1,14 @@
+{
+  "name": "cclient-latest-plugins",
+  "version": "1.0.0",
+  "description": "Latest Threads module for the cryogen-client project",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pyragon",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^3.0.3"
+  }
+}

@@ -1,0 +1,14 @@
+#latest-title {
+  margin-top: 5px;
+  margin-left: 5px;
+  border-bottom: 1px solid #fff;
+  color: white;
+}
+
+#latest-loader {
+  margin: auto;
+  display: block;
+  color: white;
+  width: 20px;
+  height: 20px;
+}

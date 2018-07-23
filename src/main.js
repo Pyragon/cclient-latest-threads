@@ -10,7 +10,6 @@ var latest = function(main) {
     init: (config) => {},
 
     getDom: () => {
-      console.log('getting dom ' + threads);
       var container = document.createElement('div');
 
       var title = document.createElement('p');
@@ -32,7 +31,6 @@ var latest = function(main) {
 
       for (var i = 0; i < threads.length; i++) {
         var thread = threads[i];
-        console.log(thread);
 
         var div = document.createElement('div');
         div.className = 'news-post';
@@ -52,7 +50,6 @@ var latest = function(main) {
         div.appendChild(author);
 
         container.appendChild(div);
-        console.log(container);
       }
 
       return container;
@@ -72,12 +69,12 @@ var latest = function(main) {
           return;
         }
         threads = response.threads;
-        main.getPluginManager().updateDom('latest-threads-plugin');
+        main.getPluginManager().updateDom('cclient-latest-threads');
       });
     },
 
     getName: () => {
-      return "latest-threads-plugin";
+      return "cclient-latest-threads";
     },
 
     getDelay: () => {

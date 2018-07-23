@@ -10,7 +10,6 @@ var latest = function(main) {
     init: (config) => {},
 
     getDom: () => {
-      console.log('getting dom ' + threads);
       var container = document.createElement('div');
 
       var title = document.createElement('p');
@@ -72,12 +71,12 @@ var latest = function(main) {
           return;
         }
         threads = response.threads;
-        main.getPluginManager().updateDom('latest-threads-plugin');
+        main.getPluginManager().updateDom('cclient-latest-threads');
       });
     },
 
     getName: () => {
-      return "latest-threads-plugin";
+      return "cclient-latest-threads";
     },
 
     getDelay: () => {

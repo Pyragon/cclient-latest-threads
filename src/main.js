@@ -74,7 +74,7 @@ var latest = function(main) {
     },
 
     getName: () => {
-      return "cclient-latest-threads";
+      return 'cclient-latest-threads';
     },
 
     getDelay: () => {
@@ -82,7 +82,7 @@ var latest = function(main) {
     },
 
     getStylesheets: () => {
-      return ['styles/style.css', '/styles/fa/css/all.min.css'];
+      return ['styles/style.css'];
     }
 
   };

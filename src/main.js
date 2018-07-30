@@ -71,12 +71,12 @@ var latest = function() {
           return;
         }
         threads = response.threads;
-        ui.getPlugins().updateDom('cclient-latest-threads');
+        ui.getWidgets().updateDom('cclient-widget-latest-threads');
       });
     },
 
     getName: () => {
-      return 'cclient-latest-threads';
+      return 'cclient-widget-latest-threads';
     },
 
     getDelay: () => {

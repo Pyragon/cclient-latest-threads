@@ -1,5 +1,5 @@
 {
-  "name": "cclient-latest-plugins",
+  "name": "cclient-widget-latest-threads",
   "version": "1.0.0",
   "description": "Latest Threads module for the cryogen-client project",
   "main": "src/main.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pyragon/cclient-latest-threads.git"
+    "url": "git+https://github.com/pyragon/cclient-widget-latest-threads.git"
   },
   "author": "Pyragon",
   "license": "MIT",

@@ -1,63 +1,65 @@
 const dateFormat = require('dateformat');
+const shell = require('electron').shell;
 
-var latest = function(main) {
+var latest = function() {
 
   var threads = [];
   var error;
+
+  function clickedThread() {
+    shell.openExternal($(this).data('url'));
+  }
 
   return {
 
     init: (config) => {},
 
     getDom: () => {
-      var container = document.createElement('div');
+      var container = $('<div></div>');
 
-      var title = document.createElement('p');
-      title.id = 'latest-title';
-      title.innerHTML = 'Latest Threads';
+      var title = $('<p>Latest Threads</p>');
+      title.prop('id', 'latest-title');
 
-      container.appendChild(title);
+      container.append(title);
 
       if (threads.length == 0) {
-        var loader = document.createElement('div');
-        loader.id = 'latest-loader';
-        var spinner = document.createElement('i');
-        spinner.className = 'fa fa-spinner fa-spin';
+        var loader = $('<div></div>');
+        loader.prop('id', 'latest-loader');
 
-        loader.appendChild(spinner);
-        container.appendChild(loader);
+        var spinner = $('<i></i>');
+        spinner.addClass('fa fa-spinner fa-spin');
+
+        loader.append(spinner);
+        container.append(loader);
         return container;
       }
 
       for (var i = 0; i < threads.length; i++) {
         var thread = threads[i];
 
-        var div = document.createElement('div');
-        div.className = 'news-post';
+        var div = $('<div></div>');
+        div.addClass('news-post');
 
-        var thread_title = document.createElement('p');
-        thread_title.className = 'news-title';
-        thread_title.innerHTML = thread.subject;
+        var threadTitle = $(`<p>${thread.subject}</p>`);
+        threadTitle.addClass('news-title');
 
-        var author = document.createElement('p');
-        author.className = 'news-author';
-        var authorline = 'Posted ';
-        authorline += dateFormat(new Date(thread.dateline * 1000), 'mmmm dS, yyyy');
-        authorline += ' By ' + thread.formattedName;
-        author.innerHTML = authorline;
+        var threadAuthor = $(`<p>Posted ${dateFormat(new Date(thread.dateline * 1000), 'mmmm dS, yyyy')} By ${thread.formattedName}</p>`);
+        threadAuthor.addClass('news-author');
 
-        div.appendChild(thread_title);
-        div.appendChild(author);
+        div.append(threadTitle);
+        div.append(threadAuthor);
 
-        container.appendChild(div);
+        div.data('url', thread.url);
+        div.click(clickedThread);
+
+        container.append(div);
       }
 
       return container;
     },
 
     update: () => {
-      var plugin = this;
-      main.request({
+      request({
         path: '/forums/posts',
         method: 'GET'
       }, {
@@ -69,7 +71,7 @@ var latest = function(main) {
           return;
         }
         threads = response.threads;
-        main.getPluginManager().updateDom('cclient-latest-threads');
+        ui.getPlugins().updateDom('cclient-latest-threads');
       });
     },
 

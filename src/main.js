@@ -6,13 +6,17 @@ var latest = function() {
     var threads = [];
     var error;
 
+    var config;
+
     function clickedThread() {
         shell.openExternal($(this).data('url'));
     }
 
     return {
 
-        init: (config) => {},
+        init: (config) => {
+            this.config = config;
+        },
 
         getDom: () => {
             var container = $('<div></div>');
@@ -69,7 +73,7 @@ var latest = function() {
                 method: 'GET'
             }, {
                 filter: 'latest',
-                limit: 3
+                limit: this.config.limit.value
             }, (response) => {
                 if (response.error) {
                     $('#latest-loading-text').html('Error loading. Retrying...');

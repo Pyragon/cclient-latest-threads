@@ -15,6 +15,13 @@
     "bugs": {
         "url": "https://github.com/pyragon/cclient-widget-latest-threads/issues"
     },
+    "defaultConfig": {
+        "limit": {
+            "type": "Integer",
+            "value": 3,
+            "description": "Number of threads to display"
+        }
+    },
     "homepage": "https://github.com/pyragon/cclient-widget-latest-threads#readme",
     "dependencies": {
         "dateformat": "^3.0.3"

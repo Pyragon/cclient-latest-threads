@@ -1,6 +1,6 @@
 {
     "name": "cclient-widget-latest-threads",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "Latest Threads module for the cryogen-client project",
     "main": "src/main.js",
     "scripts": {

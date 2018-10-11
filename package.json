@@ -20,6 +20,11 @@
             "type": "Integer",
             "value": 3,
             "description": "Number of threads to display"
+        },
+        "useContextMenu": {
+            "type": "Boolean",
+            "value": true,
+            "description": "Whether or not to add a context menu to the latest threads"
         }
     },
     "homepage": "https://github.com/pyragon/cclient-widget-latest-threads#readme",

@@ -16,6 +16,17 @@ var latest = function() {
 
         init: (config) => {
             this.config = config;
+            if (config.useContextMenu !== undefined && config.useContextMenu.value == true)
+                context.addMenuItems({
+                    selector: '.news-post',
+                    items: [{
+                        name: 'View Post',
+                        icon: 'fas fa-file-code',
+                        callback: (clickEvent, e) => {
+                            shell.openExternal($(clickEvent.target).closest('.news-post').data('url'));
+                        }
+                    }]
+                });
         },
 
         getDom: () => {
@@ -48,6 +59,7 @@ var latest = function() {
 
                 var div = $('<div></div>');
                 div.addClass('news-post');
+                div.data('url', thread.url);
 
                 var threadTitle = $(`<p>${thread.subject}</p>`);
                 threadTitle.addClass('news-title');

@@ -1,6 +1,6 @@
 {
     "name": "cclient-widget-latest-threads",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Latest Threads module for the cryogen-client project",
     "main": "src/main.js",
     "scripts": {
@@ -20,6 +20,11 @@
             "type": "Integer",
             "value": 3,
             "description": "Number of threads to display"
+        },
+        "useContextMenu": {
+            "type": "Boolean",
+            "value": true,
+            "description": "Whether or not to add a context menu to the latest threads"
         }
     },
     "homepage": "https://github.com/pyragon/cclient-widget-latest-threads#readme",
